@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CC01.WInform
 {
-    public partial class Form1 : Form
+    public partial class FrmUniversity : Form
     {
-        public Form1()
+        public FrmUniversity()
         {
             InitializeComponent();
         }

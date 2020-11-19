@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CC01.WInform.Properties
+namespace CC01.WinForms.Properties
 {
 
 

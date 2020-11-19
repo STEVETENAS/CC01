@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.DAL", "CC01.DAL\CC01.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.BLL", "CC01.BLL\CC01.BLL.csproj", "{A40F35FA-59D2-4D1B-9F1D-FAF89D3ED6DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.WinForms", "CC01.Winforms\CC01.WinForms.csproj", "{B431C5F9-63D1-4EE2-AB03-A400EC3BB361}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC01.WinForms", "CC01.WinForms\CC01.WinForms.csproj", "{DCB61B1A-4480-4370-A438-882758088F4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{A40F35FA-59D2-4D1B-9F1D-FAF89D3ED6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A40F35FA-59D2-4D1B-9F1D-FAF89D3ED6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A40F35FA-59D2-4D1B-9F1D-FAF89D3ED6DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B431C5F9-63D1-4EE2-AB03-A400EC3BB361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B431C5F9-63D1-4EE2-AB03-A400EC3BB361}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B431C5F9-63D1-4EE2-AB03-A400EC3BB361}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B431C5F9-63D1-4EE2-AB03-A400EC3BB361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB61B1A-4480-4370-A438-882758088F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB61B1A-4480-4370-A438-882758088F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB61B1A-4480-4370-A438-882758088F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB61B1A-4480-4370-A438-882758088F4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

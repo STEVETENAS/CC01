@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CC01.BO
 {
-    class University
+    [Serializable]
+    public class University
     {
         public string Name { get; set; }
         public int Tel { get; set; }

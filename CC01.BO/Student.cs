@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CC01.BO
 {
+    [Serializable]
     public class Student
     {
         public string FirstName { get; set; }
@@ -36,7 +37,7 @@ namespace CC01.BO
             BornAt = bornAt;
             Photo = photo;
             University u = new University();
-            Matricule = $"{u.Name.Substring(0, 2)}" +
+            Matricule = $"{FirstName.Substring(0, 2)}" +
                         $"{DateTime.Now.Year.ToString().Substring(2, 3)}" +
                         $"{count++.ToString().PadLeft(4, '0')}" +
                         $"{BornOn.Year.ToString().Substring(2, 3)}";
@@ -53,12 +54,11 @@ namespace CC01.BO
             BornAt = s.BornAt;
             Photo = s.Photo;
             University u = new University();
-            Matricule = $"{u.Name.Substring(0, 2)}" +
+            Matricule = $"{FirstName.Substring(0, 2)}" +
                         $"{DateTime.Now.Year.ToString().Substring(2, 3)}" +
                         $"{count++.ToString().PadLeft(4, '0')}" +
                         $"{BornOn.Year.ToString().Substring(2, 3)}";
 
         }
     }
-}
 }

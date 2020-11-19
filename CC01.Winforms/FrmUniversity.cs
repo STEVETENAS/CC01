@@ -16,5 +16,18 @@ namespace CC01.WinForms
         {
             InitializeComponent();
         }
+
+        private void FrmUniversity_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!char.IsDigit(ch) && ch != 8)
+                e.Handled = true;
+        }
     }
 }

@@ -46,7 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentBLO.cs" />
+    <Compile Include="TypingException.cs" />
+    <Compile Include="UniversityBLO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -57,15 +57,16 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(197, 41);
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(195, 43);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 196);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 110);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(17, 41);
+            this.txtName.Location = new System.Drawing.Point(15, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(162, 32);
             this.txtName.TabIndex = 1;
@@ -73,8 +74,9 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.ForeColor = System.Drawing.Color.Azure;
-            this.lblName.Location = new System.Drawing.Point(12, 12);
+            this.lblName.Location = new System.Drawing.Point(10, 14);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(83, 26);
             this.lblName.TabIndex = 2;
@@ -83,8 +85,9 @@
             // lblTel
             // 
             this.lblTel.AutoSize = true;
+            this.lblTel.BackColor = System.Drawing.Color.Transparent;
             this.lblTel.ForeColor = System.Drawing.Color.Azure;
-            this.lblTel.Location = new System.Drawing.Point(12, 90);
+            this.lblTel.Location = new System.Drawing.Point(10, 92);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(53, 26);
             this.lblTel.TabIndex = 4;
@@ -92,7 +95,7 @@
             // 
             // txtTel
             // 
-            this.txtTel.Location = new System.Drawing.Point(17, 119);
+            this.txtTel.Location = new System.Drawing.Point(15, 121);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(162, 32);
             this.txtTel.TabIndex = 3;
@@ -100,16 +103,17 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.ForeColor = System.Drawing.Color.Azure;
-            this.lblEmail.Location = new System.Drawing.Point(12, 176);
+            this.lblEmail.Location = new System.Drawing.Point(10, 178);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(68, 26);
+            this.lblEmail.Size = new System.Drawing.Size(80, 26);
             this.lblEmail.TabIndex = 6;
-            this.lblEmail.Text = "Email";
+            this.lblEmail.Text = "Email :";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(17, 205);
+            this.txtEmail.Location = new System.Drawing.Point(15, 207);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(162, 32);
             this.txtEmail.TabIndex = 5;
@@ -138,40 +142,43 @@
             this.Column4});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.GridColor = System.Drawing.Color.Silver;
-            this.dataGridView1.Location = new System.Drawing.Point(386, 76);
+            this.dataGridView1.Location = new System.Drawing.Point(354, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(446, 323);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 161);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(17, 268);
+            this.btnCancel.Location = new System.Drawing.Point(12, 266);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(162, 47);
+            this.btnCancel.Size = new System.Drawing.Size(179, 47);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(197, 268);
+            this.btnSave.Location = new System.Drawing.Point(214, 266);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(179, 47);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // lblSearch
             // 
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
+            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.ForeColor = System.Drawing.Color.Azure;
-            this.lblSearch.Location = new System.Drawing.Point(381, 9);
+            this.lblSearch.Location = new System.Drawing.Point(348, 11);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(93, 26);
             this.lblSearch.TabIndex = 11;
@@ -180,7 +187,7 @@
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(386, 38);
+            this.txtSearch.Location = new System.Drawing.Point(353, 40);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(349, 32);
             this.txtSearch.TabIndex = 10;
@@ -188,20 +195,22 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(741, 38);
+            this.btnSearch.Location = new System.Drawing.Point(708, 40);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(91, 32);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Azure;
-            this.label1.Location = new System.Drawing.Point(192, 12);
+            this.label1.Location = new System.Drawing.Point(190, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 26);
             this.label1.TabIndex = 13;
@@ -209,26 +218,28 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(74)))), ((int)(((byte)(59)))));
-            this.btnDelete.Location = new System.Drawing.Point(197, 330);
+            this.btnDelete.Location = new System.Drawing.Point(618, 266);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(179, 47);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(17, 330);
+            this.btnEdit.Location = new System.Drawing.Point(416, 266);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(162, 47);
+            this.btnEdit.Size = new System.Drawing.Size(179, 47);
             this.btnEdit.TabIndex = 14;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // Column1
             // 
@@ -256,22 +267,23 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(331, 8);
+            this.button1.Location = new System.Drawing.Point(312, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 33);
             this.button1.TabIndex = 17;
             this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FrmUniversity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(158)))), ((int)(((byte)(208)))));
-            this.ClientSize = new System.Drawing.Size(840, 411);
+            this.ClientSize = new System.Drawing.Size(809, 336);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);

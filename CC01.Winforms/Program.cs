@@ -16,7 +16,7 @@ namespace CC01.WInform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUniversity());
+            Application.Run(new FrmParent());
         }
     }
 }

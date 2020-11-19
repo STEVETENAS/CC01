@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CC01.BLL
+namespace CC01.BO
 {
-    public class University
+    class University
     {
         public string Name { get; set; }
         public int Tel { get; set; }

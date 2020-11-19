@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CC01.BLL
+namespace CC01.BO
 {
-    class Student
+    public class Student
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -18,7 +18,7 @@ namespace CC01.BLL
         public byte[] Photo { get; set; }
         public string Matricule { get; set; }
 
-        public static int count = 0; 
+        public static int count = 0;
 
         public Student()
         {
@@ -55,9 +55,10 @@ namespace CC01.BLL
             University u = new University();
             Matricule = $"{u.Name.Substring(0, 2)}" +
                         $"{DateTime.Now.Year.ToString().Substring(2, 3)}" +
-                        $"{count++.ToString().PadLeft(4,'0')}" +
-                        $"{BornOn.Year.ToString().Substring(2,3)}";
-            
+                        $"{count++.ToString().PadLeft(4, '0')}" +
+                        $"{BornOn.Year.ToString().Substring(2, 3)}";
+
         }
     }
+}
 }

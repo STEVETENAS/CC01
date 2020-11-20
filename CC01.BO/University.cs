@@ -35,5 +35,16 @@ namespace CC01.BO
             Email = u.Email;
 
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is University university &&
+                   Name == university.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return 539060726 + EqualityComparer<string>.Default.GetHashCode(Name);
+        }
     }
 }

@@ -75,10 +75,11 @@ namespace CC01.WinForms
         {
             try
             {
+                checkForm();
                 University newuniversity = new University(
                 txtName.Text,
                 int.Parse(txtTel.Text),
-                !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.olduniversity.Logo,
+                !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.olduniversity?.Logo,
                 txtEmail.Text
                 );
 
@@ -95,6 +96,14 @@ namespace CC01.WinForms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                     );
+
+
+                if (callback != null)
+                    callback();
+
+                //if (olduniversity != null)
+                //    Close();
+
                 txtEmail.Clear();
                 txtName.Clear();
                 txtTel.Clear();

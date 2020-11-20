@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrint = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -37,7 +37,6 @@
             this.lblTel = new System.Windows.Forms.Label();
             this.txtTel = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.picRemover = new System.Windows.Forms.Button();
@@ -55,13 +54,14 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -155,41 +155,6 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Female";
             this.radioButton2.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Column1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.GridColor = System.Drawing.Color.Silver;
-            this.dataGridView1.Location = new System.Drawing.Point(385, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 45;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(433, 325);
-            this.dataGridView1.TabIndex = 10;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // lblLastName
             // 
@@ -392,45 +357,71 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridView1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Photo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PHOTO";
-            this.dataGridViewTextBoxColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column1,
+            this.Column2,
+            this.Column4,
+            this.Column3});
+            this.dataGridView1.Location = new System.Drawing.Point(386, 82);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(432, 324);
+            this.dataGridView1.TabIndex = 68;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick_1);
             // 
-            // dataGridViewTextBoxColumn2
+            // Column5
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FIRSTNAME";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.ToolTipText = "FULLNAME";
+            this.Column5.DataPropertyName = "Photo";
+            this.Column5.HeaderText = "PHOTO";
+            this.Column5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "LastName";
-            this.Column1.HeaderText = "LASTNAME";
+            this.Column1.DataPropertyName = "Matricule";
+            this.Column1.HeaderText = "MATRICULE";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // Column2
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Sexe";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SEXE";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.ToolTipText = "SEXE";
+            this.Column2.DataPropertyName = "FirstName";
+            this.Column2.HeaderText = "FIRSTNAME";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // Column4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Matricule";
-            this.dataGridViewTextBoxColumn4.HeaderText = "MATRICULE";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.Column4.DataPropertyName = "LastName";
+            this.Column4.HeaderText = "LASTNAME";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Sexe";
+            this.Column3.HeaderText = "SEX";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // FrmStudent
             // 
@@ -440,6 +431,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(158)))), ((int)(((byte)(208)))));
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(830, 472);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dateTimePicker1);
@@ -448,7 +440,6 @@
             this.Controls.Add(this.lblTel);
             this.Controls.Add(this.txtTel);
             this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.picRemover);
@@ -472,8 +463,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student";
             this.Load += new System.EventHandler(this.FrmStudent_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,7 +480,6 @@
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Button picRemover;
@@ -507,11 +497,12 @@
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewImageColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
 

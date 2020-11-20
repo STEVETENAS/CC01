@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,6 +39,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblTel = new System.Windows.Forms.Label();
@@ -46,10 +50,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -174,8 +174,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -194,10 +194,42 @@
             this.dataGridView1.Location = new System.Drawing.Point(358, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(444, 176);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Logo";
+            this.Column1.HeaderText = "LOGO";
+            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "NAME";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Tel";
+            this.Column3.HeaderText = "TEL";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Email";
+            this.Column4.HeaderText = "EMAIL";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // lblEmail
             // 
@@ -214,7 +246,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(8, 211);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(162, 32);
+            this.txtEmail.Size = new System.Drawing.Size(330, 32);
             this.txtEmail.TabIndex = 24;
             // 
             // lblTel
@@ -264,37 +296,6 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Logo";
-            this.Column1.HeaderText = "LOGO";
-            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "NAME";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Tel";
-            this.Column3.HeaderText = "TEL";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Email";
-            this.Column4.HeaderText = "EMAIL";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // FrmUniversity
             // 

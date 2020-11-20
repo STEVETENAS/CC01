@@ -323,7 +323,7 @@ namespace CC01.WinForms
                           p.TelS,
                           u
                       )
-                  ) ;
+                  );
             }
             Form f = new StudentList("StudentsCard.rdlc", items);
             f.Show();

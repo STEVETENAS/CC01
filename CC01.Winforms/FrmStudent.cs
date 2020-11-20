@@ -19,6 +19,7 @@ namespace CC01.WinForms
         private Action callback;
         private Student oldStudent;
         private StudentBLO studentBLO;
+        University u = new University();
 
         public FrmStudent()
         {
@@ -112,7 +113,8 @@ namespace CC01.WinForms
                     sex,
                     Convert.ToDateTime(dateTimePicker1.Value),
                     txtAt.Text,
-                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo
+                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo,
+                    u
                     ) ;
 
                 StudentBLO studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
@@ -302,6 +304,7 @@ namespace CC01.WinForms
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+
             List<StudentListPrint> items = new List<StudentListPrint>();
             for (int i = 0; i < dataGridView1.Rows.Count; i++) //pour imprimer ce qui a etait selectionne dans la grille
             {
@@ -317,9 +320,10 @@ namespace CC01.WinForms
                           p.Photo,
                           p.Sexe,
                           p.EmailS,
-                          p.TelS
+                          p.TelS,
+                          u
                       )
-                  );
+                  ) ;
             }
             Form f = new StudentList("StudentsCard.rdlc", items);
             f.Show();

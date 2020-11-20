@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CC01.BO
 {
     [Serializable]
-    public class Student //: University
+    public class Student : University
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -26,7 +26,10 @@ namespace CC01.BO
 
         }
 
-        public Student(string firstName, string lastName, string emailS, int telS, string sexe, DateTime bornOn, string bornAt, byte[] photo) // : base()
+        public Student(string firstName, string lastName,
+            string emailS, int telS, string sexe, DateTime bornOn, string bornAt, byte[] photo,
+            string name, string email, int tel,byte[] logo) 
+            : base(name,tel,logo,email)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -40,7 +43,8 @@ namespace CC01.BO
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0,1)}";
         }
 
-        public Student(Student s)
+        public Student(Student s,University u)
+            :base(u)
         {
             FirstName = s.FirstName;
             LastName = s.LastName;

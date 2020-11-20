@@ -14,28 +14,31 @@ namespace CC01.WinForms
 {
     public partial class StudentList : Form
     {
+        private object items { get; set; }
+        private object reportPath { get; set; }
+
         public StudentList()
         {
             InitializeComponent();
         }
+        public StudentList(string reportPath, object items) : this()
+        {
+            this.reportPath = reportPath;
+            this.items = items;
 
+        }
         private void StudentList_Load(object sender, EventArgs e)
         {
+            //this.reportViewer1.RefreshReport();
+            //this.reportViewer1.LocalReport.EnableExternalImages = true;
+            this.reportViewer1.LocalReport.ReportPath = "StudentList.rdlc"; //determine le chemin du rapport
+            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", items));
+            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent;
+            this.reportViewer1.ZoomPercent = 100;
             this.reportViewer1.RefreshReport();
-            this.reportViewer1.LocalReport.EnableExternalImages = true;
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //QRCoder.QRCodeGenerator qRCodeGenerator = new QRCoder.QRCodeGenerator();
-            //QRCoder.QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode(textBox1.Text, QRCoder.QRCodeGenerator.ECCLevel.Q);
-            //QRCoder.QRCode qRCode = new QRCoder.QRCode(qRCodeData);
-            //Bitmap bmp = qRCode.GetGraphic(7);
-            //using (MemoryStream ms = new MemoryStream())
-            //{
-            //    bmp.Save(ms, ImageFormat.Bmp);
-
-            //}
-        }
     }
 }

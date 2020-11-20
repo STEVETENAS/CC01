@@ -271,6 +271,7 @@
     <Compile Include="StudentList.Designer.cs">
       <DependentUpon>StudentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentListPrint.cs" />
     <EmbeddedResource Include="FrmParent.resx">
       <DependentUpon>FrmParent.cs</DependentUpon>
     </EmbeddedResource>

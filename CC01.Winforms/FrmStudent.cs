@@ -335,6 +335,31 @@ namespace CC01.WinForms
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            List<StudentListPrint> items = new List<StudentListPrint>();
+            for (int i = 0; i < dataGridView1.Rows.Count; i++) //pour imprimer ce qui a etait selectionne dans la grille
+            {
+                Student p = dataGridView1.Rows[i].DataBoundItem as Student;
+                items.Add
+                  (
+                      new StudentListPrint
+                      (
+                          p.Name,
+                          p.FirstName,
+                          p.LastName,
+                          p.BornOn,
+                          p.BornAt,
+                          p.Photo,
+                          p.Sexe,
+                          p.EmailS,
+                          p.Email,
+                          p.Tel,
+                          p.TelS,
+                          p.Logo
+                      )
+                  );
+            }
+            Form f = new StudentList("StudentsCard.rdlc", items);
+            f.Show();
 
         }
     }

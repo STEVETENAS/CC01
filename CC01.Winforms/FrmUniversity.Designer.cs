@@ -108,12 +108,10 @@
             // 
             // lblSearch
             // 
-            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.ForeColor = System.Drawing.Color.Azure;
-            this.lblSearch.Location = new System.Drawing.Point(365, 15);
+            this.lblSearch.Location = new System.Drawing.Point(353, 15);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(93, 26);
             this.lblSearch.TabIndex = 29;

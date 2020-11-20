@@ -35,9 +35,9 @@ namespace CC01.WinForms
                 x =>
                 x.FirstName.ToLower().Contains(value) ||
                 x.LastName.ToLower().Contains(value) ||
-                x.BornAt.ToLower().Contains(value) ||
-                x.Tel.ToString().Contains(value)
+                x.BornAt.ToLower().Contains(value)
                 ).OrderBy(x => x.FirstName).ToArray();
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = students;
             dataGridView1.ClearSelection();
@@ -53,9 +53,9 @@ namespace CC01.WinForms
             txtLastName.Text = student.LastName;
             dateTimePicker1.Text = student.BornOn.ToString();
             txtAt.Text = student.BornAt;
-            txtTel.Text = student.Tel.ToString();
+            txtTel.Text = student.TelS.ToString();
             pictureBox1.Image = student.Photo != null ? Image.FromStream(new MemoryStream(student.Photo)) : null;
-            txtEmail.Text = student.Email;
+            txtEmail.Text = student.EmailS;
 
             if (student.Sexe.ToString() == "Male")
                 radioButton1.Checked = true;
@@ -113,7 +113,6 @@ namespace CC01.WinForms
                     txtAt.Text,
                     !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo
                     );
-
                 StudentBLO studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
 
                 if (this.oldStudent == null)
@@ -128,6 +127,7 @@ namespace CC01.WinForms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                     );
+                loadData();
 
                 if (callback != null)
                     callback();
@@ -144,6 +144,7 @@ namespace CC01.WinForms
                 pictureBox1.ImageLocation = null;
                 txtTel.Clear();
                 txtEmail.Clear();
+                txtFirstName.Focus();
 
             }
             catch (TypingException ex)
@@ -231,11 +232,6 @@ namespace CC01.WinForms
             pictureBox1.ImageLocation = null;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             btnEdit_Click(sender, e);
@@ -252,7 +248,9 @@ namespace CC01.WinForms
                             dataGridView1.SelectedRows[i].DataBoundItem as Student,
                             loadData
                         );
-                    f.ShowDialog();
+                    this.Close();
+                    f.Show();
+                    f.WindowState = FormWindowState.Maximized;
                 }
 
             }
@@ -279,31 +277,31 @@ namespace CC01.WinForms
 
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            List<StudentListPrint> items = new List<StudentListPrint>();
-            for (int i = 0; i < dataGridView1.Rows.Count; i++) //pour imprimer ce qui a etait selectionne dans la grille
-            {
-                Student p = dataGridView1.Rows[i].DataBoundItem as Student;
-                items.Add
-                  (
-                      new StudentListPrint
-                      (
-                          p.FirstName,
-                          p.LastName,
-                          p.BornOn,
-                          p.BornAt,
-                          p.Photo,
-                          p.Sexe,
-                          p.Email,
-                          p.Tel
-                      )
-                  );
-            }
-            Form f = new FrmPreview("StudentCard.rdlc",items);
-            f.Show();
+        //private void btnPrint_Click(object sender, EventArgs e)
+        //{
+        //    List<StudentListPrint> items = new List<StudentListPrint>();
+        //    for (int i = 0; i < dataGridView1.Rows.Count; i++) //pour imprimer ce qui a etait selectionne dans la grille
+        //    {
+        //        Student p = dataGridView1.Rows[i].DataBoundItem as Student;
+        //        items.Add
+        //          (
+        //              new StudentListPrint
+        //              (
+        //                  p.FirstName,
+        //                  p.LastName,
+        //                  p.BornOn,
+        //                  p.BornAt,
+        //                  p.Photo,
+        //                  p.Sexe,
+        //                  p.Email,
+        //                  p.Tel
+        //              )
+        //          );
+        //    }
+        //    Form f = new FrmPreview("StudentCard.rdlc",items);
+        //    f.Show();
 
-        }
+        //}
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -311,6 +309,26 @@ namespace CC01.WinForms
 
             if (!char.IsDigit(ch) && ch != 8)
                 e.Handled = true;
+        }
+
+        private void FrmStudent_Load(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit_Click(sender, e);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

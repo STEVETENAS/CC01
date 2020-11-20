@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace CC01.BO
 {
     [Serializable]
-    public class Student
+    public class Student //: University
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
-        public int Tel { get; set; }
+        public string EmailS { get; set; }
+        public int TelS { get; set; }
         public string Sexe { get; set; }
         public DateTime BornOn { get; set; }
         public string BornAt { get; set; }
@@ -21,44 +21,39 @@ namespace CC01.BO
 
         public static int count = 0;
 
-        public Student()
+        public Student() : base()
         {
 
         }
 
-        public Student(string firstName, string lastName, string email, int tel, string sexe, DateTime bornOn, string bornAt, byte[] photo)
+        public Student(string firstName, string lastName, string emailS, int telS, string sexe, DateTime bornOn, string bornAt, byte[] photo) // : base()
         {
             FirstName = firstName;
             LastName = lastName;
-            Email = email;
-            Tel = tel;
+            EmailS = emailS;
+            TelS = telS;
             Sexe = sexe;
             BornOn = bornOn;
             BornAt = bornAt;
             Photo = photo;
-            University u = new University();
-            Matricule = $"{FirstName.Substring(0, 2)}" +
-                        $"{DateTime.Now.Year.ToString().Substring(2, 3)}" +
-                        $"{count++.ToString().PadLeft(4, '0')}" +
-                        $"{BornOn.Year.ToString().Substring(2, 3)}";
+            Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
+                        $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0,1)}";
         }
 
         public Student(Student s)
         {
             FirstName = s.FirstName;
             LastName = s.LastName;
-            Email = s.Email;
-            Tel = s.Tel;
+            EmailS = s.EmailS;
+            TelS = s.TelS;
             Sexe = s.Sexe;
             BornOn = s.BornOn;
             BornAt = s.BornAt;
             Photo = s.Photo;
-            University u = new University();
-            Matricule = $"{FirstName.Substring(0, 2)}" +
-                        $"{DateTime.Now.Year.ToString().Substring(2, 3)}" +
-                        $"{count++.ToString().PadLeft(4, '0')}" +
-                        $"{BornOn.Year.ToString().Substring(2, 3)}";
+            Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
+                        $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
 
         }
+
     }
 }

@@ -12,43 +12,45 @@ namespace CC01.DAL
 {
     public class StudentDAO
     {
-        private static List<Student> Students;
-        private const string FILE_NAME = @"data/Products.json";
-        //private const string FILE_NAME = @"Students.json";
+        private static List<Student> students;
+        private const string FILE_NAME = @"Students.json";
         private readonly string dbFolder;
         private FileInfo file;
 
         public StudentDAO(string dbFolder)
         {
             this.dbFolder = dbFolder;
-            file = new FileInfo(FILE_NAME); 
+            file = new FileInfo(Path.Combine(this.dbFolder, FILE_NAME));
             if (!file.Directory.Exists)
             {
-                file.Directory.Create(); 
+                file.Directory.Create();
             }
+
             if (!file.Exists)
             {
                 file.Create().Close();
+                file.Refresh();
             }
-            if (file.Length < 0)
+
+            if (file.Length > 0)
             {
-                using (StreamReader sr = new StreamReader(file.FullName, true))
+                using (StreamReader sr = new StreamReader(file.FullName))
                 {
                     string json = sr.ReadToEnd();
-                    Students = JsonConvert.DeserializeObject<List<Student>>(json);
+                    students = JsonConvert.DeserializeObject<List<Student>>(json);
                 }
             }
-            if (Students == null)
+            if (students == null)
             {
-                Students = new List<Student>(); 
+                students = new List<Student>();
             }
 
         }
 
         public void Set(Student oldStudent, Student newStudent)
         {
-            var oldIndex = Students.IndexOf(oldStudent);
-            var newIndex = Students.IndexOf(newStudent);
+            var oldIndex = students.IndexOf(oldStudent);
+            var newIndex = students.IndexOf(newStudent);
 
             if (oldIndex < 0)
                 throw new KeyNotFoundException("Student reference doesn't exists !");
@@ -56,23 +58,23 @@ namespace CC01.DAL
             if (newIndex > 0 && newIndex != oldIndex)
                 throw new DuplicateNameException("this Student already exists !");
 
-            Students[oldIndex] = newStudent;
+            students[oldIndex] = newStudent;
             Save();
 
         }
 
-        public void Add(Student Student)
+        public void Add(Student student)
         {
-            var index = Students.IndexOf(Student);
+            var index = students.IndexOf(student);
             if (index >= 0)
                 throw new DuplicateNameException("Student reference already exist !");
 
-            Students.Add(Student); 
+            students.Add(student);
             Save();
         }
-        public void Remove(Student Student)
+        public void Remove(Student student)
         {
-            Students.Remove(Student);
+            students.Remove(student);
             Save();
 
         }
@@ -80,17 +82,17 @@ namespace CC01.DAL
         {
             using (StreamWriter sw = new StreamWriter(file.FullName, false))
             {
-                string json = JsonConvert.SerializeObject(Students);
+                string json = JsonConvert.SerializeObject(students);
                 sw.WriteLine(json);
             }
         }
         public IEnumerable<Student> Find()
         {
-            return new List<Student>(Students);
+            return new List<Student>(students);
         }
         public IEnumerable<Student> Find(Func<Student, bool> predicate)
         {
-            return new List<Student>(Students.Where(predicate).ToArray());
+            return new List<Student>(students.Where(predicate).ToArray());
         }
 
     }

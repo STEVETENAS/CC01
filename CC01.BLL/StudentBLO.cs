@@ -27,9 +27,9 @@ namespace CC01.BLL
         {
             return StudentRepo.Find();
         }
-        public IEnumerable<Student> GetByReference(string reference)
+        public IEnumerable<Student> GetByMatricule(string matricule)
         {
-            return StudentRepo.Find(x => x.Matricule == reference);
+            return StudentRepo.Find(x => x.Matricule == matricule);
         }
 
         public IEnumerable<Student> GetBy(Func<Student, bool> predicate)

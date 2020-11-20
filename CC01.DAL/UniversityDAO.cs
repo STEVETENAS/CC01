@@ -13,7 +13,7 @@ namespace CC01.DAL
 {
     public class UniversityDAO
     {
-        private static List<University> Universitys;
+        private static List<University> universitys;
         private const string FILE_NAME = @"Universitys.json";
         private readonly string dbFolder;
         private FileInfo file;
@@ -21,58 +21,61 @@ namespace CC01.DAL
         public UniversityDAO(string dbFolder)
         {
             this.dbFolder = dbFolder;
-            file = new FileInfo(Path.Combine(this.dbFolder, FILE_NAME)); 
+            file = new FileInfo(Path.Combine(this.dbFolder,FILE_NAME)); 
             if (!file.Directory.Exists)
             {
                 file.Directory.Create(); 
             }
+
             if (!file.Exists)
             {
-                file.Create().Close(); 
+                file.Create().Close();
+                file.Refresh();
             }
+
             if (file.Length > 0)
             {
-                using (StreamReader sr = new StreamReader(file.FullName, false))
+                using (StreamReader sr = new StreamReader(file.FullName))
                 {
                     string json = sr.ReadToEnd();
-                    Universitys = JsonConvert.DeserializeObject<List<University>>(json);
+                    universitys = JsonConvert.DeserializeObject<List<University>>(json);
                 }
             }
-            if (Universitys == null)
+            if (universitys == null)
             {
-                Universitys = new List<University>(); 
+                universitys = new List<University>(); 
             }
 
         }
 
         public void Set(University oldUniversity, University newUniversity)
         {
-            var oldIndex = Universitys.IndexOf(oldUniversity);
-            var newIndex = Universitys.IndexOf(newUniversity);
+            var oldIndex = universitys.IndexOf(oldUniversity);
+            var newIndex = universitys.IndexOf(newUniversity);
 
             if (oldIndex < 0)
                 throw new KeyNotFoundException("University reference doesn't exists !");
 
             if (newIndex > 0 && newIndex != oldIndex)
-                throw new DuplicateNameException("thos University already exists !");
+                throw new DuplicateNameException("this University already exists !");
 
-            Universitys[oldIndex] = newUniversity;
+            universitys[oldIndex] = newUniversity;
             Save();
 
         }
 
-        public void Add(University University)
+        public void Add(University university)
         {
-            var index = Universitys.IndexOf(University);
+            var index = universitys.IndexOf(university);
             if (index >= 0)
                 throw new DuplicateNameException("University reference already exist !");
 
-            Universitys.Add(University);
+            universitys.Add(university);
             Save();
         }
-        public void Remove(University University)
+        public void Remove(University university)
         {
-            Universitys.Remove(University); 
+            universitys.Remove(university); 
             Save();
 
         }
@@ -80,17 +83,17 @@ namespace CC01.DAL
         {
             using (StreamWriter sw = new StreamWriter(file.FullName, false))
             {
-                string json = JsonConvert.SerializeObject(Universitys);
+                string json = JsonConvert.SerializeObject(universitys);
                 sw.WriteLine(json);
             }
         }
         public IEnumerable<University> Find()
         {
-            return new List<University>(Universitys);
+            return new List<University>(universitys);
         }
         public IEnumerable<University> Find(Func<University, bool> predicate)
         {
-            return new List<University>(Universitys.Where(predicate).ToArray());
+            return new List<University>(universitys.Where(predicate).ToArray());
         }
 
     }

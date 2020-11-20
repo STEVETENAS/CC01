@@ -27,9 +27,9 @@ namespace CC01.BLL
         {
             return UniversityRepo.Find();
         }
-        public IEnumerable<University> GetByReference(string reference)
+        public IEnumerable<University> GetByName(string Name)
         {
-            return UniversityRepo.Find(x => x.Name == reference);
+            return UniversityRepo.Find(x => x.Name == Name);
         }
 
         public IEnumerable<University> GetBy(Func<University, bool> predicate)

@@ -1,4 +1,5 @@
 ﻿using CC01.BO;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace CC01.WinForms
         public int Tel { get; set; }
         public int TelS { get; set; }
         public byte[] Logo { get; set; }
+        //public byte QrCode { get; set; }
+        public System.Drawing.Bitmap QRCode { get; set; }
+
 
         public static int count = 0;
 
@@ -43,6 +47,12 @@ namespace CC01.WinForms
             Email = u.Email;
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
+
+            QRCodeGenerator qr = new QRCodeGenerator();
+            QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
+            QRCode code = new QRCode(data);
+            QRCode = code.GetGraphic(3);
+
 
         }
     }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QRCoder;
 
 namespace CC01.WinForms
 {
@@ -115,8 +116,7 @@ namespace CC01.WinForms
                     txtAt.Text,
                     !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo,
                     u
-                    ) ;
-
+                    );
                 StudentBLO studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
 
                 if (this.oldStudent == null)
@@ -131,6 +131,7 @@ namespace CC01.WinForms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                     );
+                               
 
                 if (callback != null)
                     callback();
@@ -149,6 +150,10 @@ namespace CC01.WinForms
                 txtEmail.Clear();
                 txtFirstName.Focus();
                 loadData();
+
+                //QRCodeGenerator qr = new QRCodeGenerator();
+                //QRCodeData data = qr.CreateQrCode(oldStudent.Matricule, QRCodeGenerator.ECCLevel.Q);
+                //QRCode code = new QRCode(data);
 
 
             }
@@ -194,6 +199,10 @@ namespace CC01.WinForms
                 );
 
             }
+        }
+
+        private void GetQRCode()
+        {
         }
 
         private void checkForm()
@@ -306,7 +315,7 @@ namespace CC01.WinForms
         {
 
             List<StudentListPrint> items = new List<StudentListPrint>();
-            for (int i = 0; i < dataGridView1.Rows.Count; i++) //pour imprimer ce qui a etait selectionne dans la grille
+            for (int i = 0; i < dataGridView1.Rows.Count; i++) 
             {
                 Student p = dataGridView1.Rows[i].DataBoundItem as Student;
                 items.Add

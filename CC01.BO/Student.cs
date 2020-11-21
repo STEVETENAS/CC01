@@ -39,6 +39,8 @@ namespace CC01.BO
             Photo = photo;
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
+
+
         }
 
         public Student(Student s, University u)

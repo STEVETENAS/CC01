@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,7 @@ namespace CC01.WinForms
             this.reportViewer1.LocalReport.ReportPath = "StudentsCard.rdlc"; 
             this.reportViewer1.LocalReport.DataSources.Add
                 (
-                    new Microsoft.Reporting.WinForms.ReportDataSource(
+                    new ReportDataSource(
                     "DataSet1",
                     items
                     )
@@ -41,7 +42,7 @@ namespace CC01.WinForms
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.Percent;
             this.reportViewer1.ZoomPercent = 100;
             this.reportViewer1.RefreshReport();
-
+            
         }
 
     }

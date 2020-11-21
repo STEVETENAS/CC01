@@ -392,33 +392,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="BornOn">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>BornOn</rd:DefaultName>
+                    <Image Name="Image3">
+                      <Source>Database</Source>
+                      <Value>=Fields!QRCode.Value</Value>
+                      <MIMEType>image/bmp</MIMEType>
+                      <Sizing>FitProportional</Sizing>
                       <Style>
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Textbox>
+                    </Image>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -702,6 +686,10 @@
           <DataField>Photo</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
+        <Field Name="QRCode">
+          <DataField>QRCode</DataField>
+          <rd:TypeName>System.Drawing.Bitmap</rd:TypeName>
+        </Field>
         <Field Name="Sexe">
           <DataField>Sexe</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -716,9 +704,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>CC01.BO</rd:DataSetName>
-        <rd:TableName>Student</rd:TableName>
-        <rd:ObjectDataSourceType>CC01.BO.Student, CC01.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:DataSetName>CC01.WinForms</rd:DataSetName>
+        <rd:TableName>StudentListPrint</rd:TableName>
+        <rd:ObjectDataSourceType>CC01.WinForms.StudentListPrint, CC01.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

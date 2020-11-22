@@ -1,10 +1,8 @@
 ﻿using CC01.BO;
 using QRCoder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.IO;
 
 namespace CC01.WinForms
 {
@@ -23,12 +21,13 @@ namespace CC01.WinForms
         public int Tel { get; set; }
         public int TelS { get; set; }
         public byte[] Logo { get; set; }
-        //public byte QrCode { get; set; }
-        public System.Drawing.Bitmap QRCode { get; set; }
-
+        public byte[] QrCode { get; set; }
 
         public static int count = 0;
+        public StudentListPrint()
+        {
 
+        }
         public StudentListPrint(string firstName, string lastName, DateTime bornOn, string bornAt,
             byte[] photo, string sexe, string emailS, int telS, 
             University u)
@@ -48,12 +47,10 @@ namespace CC01.WinForms
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
 
-            QRCodeGenerator qr = new QRCodeGenerator();
-            QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
-            QRCode code = new QRCode(data);
-            QRCode = code.GetGraphic(3);
-
-
         }
+        //QRCodeGenerator qr = new QRCodeGenerator();
+        //QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
+        //QRCode code = new QRCode(data);
+
     }
 }

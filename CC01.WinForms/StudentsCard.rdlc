@@ -392,17 +392,32 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Image Name="Image3">
-                      <Source>Database</Source>
-                      <Value>=Fields!QRCode.Value</Value>
-                      <MIMEType>image/bmp</MIMEType>
-                      <Sizing>FitProportional</Sizing>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                    </Image>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -636,7 +651,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>9514ccab-4178-4c96-b4e6-cd5010f92d69</rd:DataSourceID>
+      <rd:DataSourceID>b9b2f0a2-04ba-4705-be21-4e1cd62f52db</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -646,6 +661,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="bitmap">
+          <DataField>bitmap</DataField>
+          <rd:TypeName>System.Drawing.Image</rd:TypeName>
+        </Field>
         <Field Name="BornAt">
           <DataField>BornAt</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -686,9 +705,9 @@
           <DataField>Photo</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
-        <Field Name="QRCode">
-          <DataField>QRCode</DataField>
-          <rd:TypeName>System.Drawing.Bitmap</rd:TypeName>
+        <Field Name="QrCode">
+          <DataField>QrCode</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
         <Field Name="Sexe">
           <DataField>Sexe</DataField>

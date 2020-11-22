@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CC01.BO
 {
@@ -27,7 +24,6 @@ namespace CC01.BO
         }
 
         public Student(string firstName, string lastName, string emailS, int telS, string sexe, DateTime bornOn, string bornAt, byte[] photo,University u)
-            :base(u.Name,u.Tel,u.Logo,u.Email)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -39,7 +35,6 @@ namespace CC01.BO
             Photo = photo;
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
-
 
         }
 

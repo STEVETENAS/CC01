@@ -2,16 +2,12 @@
 using CC01.BLL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using QRCoder;
 
 namespace CC01.WinForms
 {
@@ -106,6 +102,8 @@ namespace CC01.WinForms
                 else
                     sex = "";
 
+
+
                 Student newStudent = new Student(
                     txtFirstName.Text,
                     txtLastName.Text,
@@ -117,6 +115,8 @@ namespace CC01.WinForms
                     !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo,
                     u
                     );
+
+
                 StudentBLO studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
 
                 if (this.oldStudent == null)
@@ -253,11 +253,11 @@ namespace CC01.WinForms
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FrmParent frmParent = new FrmParent();
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 {
+
                     Form f = new FrmStudent
                         (
                             dataGridView1.SelectedRows[i].DataBoundItem as Student,
@@ -317,19 +317,19 @@ namespace CC01.WinForms
             List<StudentListPrint> items = new List<StudentListPrint>();
             for (int i = 0; i < dataGridView1.Rows.Count; i++) 
             {
-                Student p = dataGridView1.Rows[i].DataBoundItem as Student;
+                Student s = dataGridView1.Rows[i].DataBoundItem as Student;
                 items.Add
                   (
                       new StudentListPrint
                       (
-                          p.FirstName,
-                          p.LastName,
-                          p.BornOn,
-                          p.BornAt,
-                          p.Photo,
-                          p.Sexe,
-                          p.EmailS,
-                          p.TelS,
+                          s.FirstName,
+                          s.LastName,
+                          s.BornOn,
+                          s.BornAt,
+                          s.Photo,
+                          s.Sexe,
+                          s.EmailS,
+                          s.TelS,
                           u
                       )
                   );

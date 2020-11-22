@@ -290,6 +290,14 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CC01.BO.Student.datasource" />
+    <None Include="Properties\DataSources\CC01.WinForms.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\CC01.WinForms.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\FrmParent.datasource" />
+    <None Include="Properties\DataSources\FrmStudent.datasource" />
+    <None Include="Properties\DataSources\FrmUniversity.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
+    <None Include="Properties\DataSources\StudentList.datasource" />
     <None Include="Properties\DataSources\StudentListPrint.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

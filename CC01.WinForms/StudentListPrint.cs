@@ -18,20 +18,22 @@ namespace CC01.WinForms
         public string Sexe { get; set; }
         public string EmailS { get; set; }
         public string Email { get; set; }
-        public int Tel { get; set; }
-        public int TelS { get; set; }
+        public string Tel { get; set; }
+        public long TelS { get; set; }
         public byte[] Logo { get; set; }
-        public byte[] QrCode { get; set; }
+        public Image QrCode { get; set; }
 
         public static int count = 0;
         public StudentListPrint()
         {
 
         }
-        public StudentListPrint(string firstName, string lastName, DateTime bornOn, string bornAt,
-            byte[] photo, string sexe, string emailS, int telS, 
-            University u)
+
+        public StudentListPrint(string name, string firstName, string lastName, DateTime bornOn, 
+            string bornAt, byte[] photo, string sexe, string emailS, string email, string tel, 
+            long telS, byte[] logo)
         {
+            Name = name;
             FirstName = firstName;
             LastName = lastName;
             BornOn = bornOn;
@@ -39,18 +41,41 @@ namespace CC01.WinForms
             Photo = photo;
             Sexe = sexe;
             EmailS = emailS;
+            Email = email;
+            Tel = tel;
             TelS = telS;
-            Name = u.Name;
-            Tel = u.Tel;
-            Logo = u.Logo;
-            Email = u.Email;
+            Logo = logo;
+            Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
+                        $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
+
+
+        }
+
+
+        //QRCodeGenerator qr = new QRCodeGenerator();
+        //QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
+        //QRCode code = new QRCode(data);
+        //QrCode = code.GetGraphic(3);
+
+        public StudentListPrint(StudentListPrint s)
+        {
+            Name = s.Name;
+            FirstName = s.FirstName;
+            LastName = s.LastName;
+            BornOn = s.BornOn;
+            BornAt = s.BornAt;
+            Photo = s.Photo;
+            Sexe = s.Sexe;
+            EmailS = s.EmailS;
+            Email = s.Email;
+            Tel = s.Tel;
+            TelS = s.TelS;
+            Logo = s.Logo;
+
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
 
         }
-        //QRCodeGenerator qr = new QRCodeGenerator();
-        //QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
-        //QRCode code = new QRCode(data);
 
     }
 }

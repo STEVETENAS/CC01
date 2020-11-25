@@ -16,14 +16,14 @@ namespace CC01.WinForms
         private Action callback;
         private Student oldStudent;
         private StudentBLO studentBLO;
-        University u = new University();
+        private UniversityBLO universityBLO;
 
         public FrmStudent()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
             studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
-
+            universityBLO = new UniversityBLO(ConfigurationManager.AppSettings["DbFolder"]);
         }
             public FrmStudent(Action callback) : this()
         {
@@ -51,8 +51,6 @@ namespace CC01.WinForms
                 radioButton2.Checked = false;
             }
 
-            //radioButton1.Checked = (student.Sexe.ToString() == "Male") ? true : false;
-            //radioButton2.Checked = (student.Sexe.ToString() == "Female") ? true : false;
         }
 
     private void loadData()
@@ -108,12 +106,11 @@ namespace CC01.WinForms
                     txtFirstName.Text,
                     txtLastName.Text,
                     txtEmail.Text,
-                    int.Parse(txtTel.Text),
+                    long.Parse(txtTel.Text),
                     sex,
                     Convert.ToDateTime(dateTimePicker1.Value),
                     txtAt.Text,
-                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo,
-                    u
+                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo
                     );
 
 
@@ -315,13 +312,16 @@ namespace CC01.WinForms
         {
 
             List<StudentListPrint> items = new List<StudentListPrint>();
-            for (int i = 0; i < dataGridView1.Rows.Count; i++) 
+            //University university = universityBLO.GetByIndex(i);
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
+                University university = universityBLO.GetUniversity();
                 Student s = dataGridView1.Rows[i].DataBoundItem as Student;
                 items.Add
                   (
                       new StudentListPrint
                       (
+                          university?.Name,
                           s.FirstName,
                           s.LastName,
                           s.BornOn,
@@ -329,8 +329,11 @@ namespace CC01.WinForms
                           s.Photo,
                           s.Sexe,
                           s.EmailS,
+                          university?.Email,
+                          university?.Tel.ToString(),
                           s.TelS,
-                          u
+                          !string.IsNullOrEmpty(university?.Logo) ? File.ReadAllBytes(university?.Logo) : null
+
                       )
                   );
             }

@@ -13,7 +13,7 @@ namespace CC01.DAL
 {
     public class UniversityDAO
     {
-        private static List<University> universitys;
+        private University university;
         private const string FILE_NAME = @"Universitys.json";
         private readonly string dbFolder;
         private FileInfo file;
@@ -38,62 +38,71 @@ namespace CC01.DAL
                 using (StreamReader sr = new StreamReader(file.FullName))
                 {
                     string json = sr.ReadToEnd();
-                    universitys = JsonConvert.DeserializeObject<List<University>>(json);
+                    university = JsonConvert.DeserializeObject<University>(json);
                 }
             }
-            if (universitys == null)
-            {
-                universitys = new List<University>(); 
-            }
+            //if (university == null)
+            //{
+            //    university = new University(); 
+            //}
 
         }
 
-        public void Set(University oldUniversity, University newUniversity)
-        {
-            var oldIndex = universitys.IndexOf(oldUniversity);
-            var newIndex = universitys.IndexOf(newUniversity);
+        //public void Set(University oldUniversity, University newUniversity)
+        //{
+        //    var oldIndex = university.IndexOf(oldUniversity);
+        //    var newIndex = university.IndexOf(newUniversity);
 
-            if (oldIndex < 0)
-                throw new KeyNotFoundException("University reference doesn't exists !");
+        //    if (oldIndex < 0)
+        //        throw new KeyNotFoundException("University reference doesn't exists !");
 
-            if (newIndex > 0 && newIndex != oldIndex)
-                throw new DuplicateNameException("this University already exists !");
+        //    if (newIndex > 0 && newIndex != oldIndex)
+        //        throw new DuplicateNameException("this University already exists !");
 
-            universitys[oldIndex] = newUniversity;
-            Save();
+        //    universitys[oldIndex] = newUniversity;
+        //    Save();
 
-        }
+        //}
 
         public void Add(University university)
         {
-            var index = universitys.IndexOf(university);
-            if (index >= 0)
-                throw new DuplicateNameException("University reference already exist !");
+            //var index = university.IndexOf(university);
+            //if (index >= 0)
+            //    throw new DuplicateNameException("University reference already exist !");
 
-            universitys.Add(university);
-            Save();
+            //universitys.Add(university);
+            using (StreamWriter sw = new StreamWriter(file.FullName, false))
+            {
+                string json = JsonConvert.SerializeObject(university);
+                sw.WriteLine(json);
+            }
         }
-        public void Remove(University university)
-        {
-            universitys.Remove(university); 
-            Save();
+        //public void Remove(University university)
+        //{
+        //    universitys.Remove(university); 
+        //    Save();
 
-        }
+        //}
         public void Save()
         {
             using (StreamWriter sw = new StreamWriter(file.FullName, false))
             {
-                string json = JsonConvert.SerializeObject(universitys);
+                string json = JsonConvert.SerializeObject(university);
                 sw.WriteLine(json);
             }
+            //}
+            //public IEnumerable<University> Find()
+            //{
+            //    return new List<University>(universitys);
+            //}
+            //public IEnumerable<University> Find(Func<University, bool> predicate)
+            //{
+            //    return new List<University>(universitys.Where(predicate).ToArray());
         }
-        public IEnumerable<University> Find()
+
+        public University Get()
         {
-            return new List<University>(universitys);
-        }
-        public IEnumerable<University> Find(Func<University, bool> predicate)
-        {
-            return new List<University>(universitys.Where(predicate).ToArray());
+            return university;
         }
 
     }

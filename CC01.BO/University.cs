@@ -10,8 +10,8 @@ namespace CC01.BO
     public class University
     {
         public string Name { get; set; }
-        public int Tel { get; set; }
-        public byte[] Logo { get; set; }
+        public long Tel { get; set; }
+        public string Logo { get; set; }
         public string Email { get; set; }
 
         public University()
@@ -19,7 +19,7 @@ namespace CC01.BO
 
         }
 
-        public University(string name, int tel, byte[] logo, string email)
+        public University(string name, long tel, string logo, string email)
         {
             Name = name;
             Tel = tel;

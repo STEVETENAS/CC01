@@ -19,46 +19,55 @@ namespace CC01.WinForms
         University olduniversity;
         UniversityBLO universityBLO;
         private Action callback;
+        University university = new University();
 
         public FrmUniversity()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
             universityBLO = new UniversityBLO(ConfigurationManager.AppSettings["DbFolder"]);
+            olduniversity = universityBLO.GetUniversity();
+            if(olduniversity != null)
+            {
+                txtName.Text = olduniversity.Name;
+                txtTel.Text = olduniversity.Tel.ToString();
+                pictureBox1.ImageLocation = olduniversity.Logo;
+                txtEmail.Text = olduniversity.Email;
 
+            }
         }
 
         private void FrmUniversity_Load(object sender, EventArgs e)
         {
-            loadData();
+            loadData(universityBLO);
         }
         public FrmUniversity(Action callback) : this()
         {
             this.callback = callback;
         }
 
-        public FrmUniversity(University university, Action callback) : this(callback)
+        //public FrmUniversity(University university, Action callback) : this(callback)
+        //{
+        //    this.olduniversity = university;
+        //    txtName.Text = university.Name;
+        //    txtTel.Text = university.Tel.ToString();
+        //    pictureBox1.Image = university.Logo != null ? Image.FromStream(new MemoryStream(university.Logo.)) : null;
+        //    txtEmail.Text = university.Email;
+
+        //}
+
+
+
+        private void loadData(UniversityBLO universityBLO)
         {
-            this.olduniversity = university;
-            txtName.Text = university.Name;
-            txtTel.Text = university.Tel.ToString();
-            pictureBox1.Image = university.Logo != null ? Image.FromStream(new MemoryStream(university.Logo)) : null;
-            txtEmail.Text = university.Email;
-
-        }
-
-
-
-        private void loadData()
-        {
-            string value = txtSearch.Text;
-            var universities = universityBLO.GetBy(
-                x =>
-                x.Name.ToLower().Contains(value) ||
-                x.Tel.ToString().Contains(value)
-                ).OrderBy(x => x.Name).ToArray();
+            //string value = txtSearch.Text;
+            //var universities = universityBLO.GetBy(
+            //    x =>
+            //    x.Name.ToLower().Contains(value) ||
+            //    x.Tel.ToString().Contains(value)
+            //    ).OrderBy(x => x.Name).ToArray();
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = universities;
+            dataGridView1.DataSource = universityBLO.GetUniversity();
             dataGridView1.ClearSelection();
         }
 
@@ -76,19 +85,22 @@ namespace CC01.WinForms
             try
             {
                 checkForm();
+
                 University newuniversity = new University(
                 txtName.Text,
-                int.Parse(txtTel.Text),
-                !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.olduniversity?.Logo,
+                long.Parse(txtTel.Text),
+                pictureBox1.ImageLocation,
                 txtEmail.Text
                 );
 
-                UniversityBLO universityBLO = new UniversityBLO(ConfigurationManager.AppSettings["DbFolder"]);
+                universityBLO.CreateUniversity(olduniversity, newuniversity);
 
-                if (this.olduniversity == null)
-                    universityBLO.CreateUniversity(newuniversity);
-                else
-                    universityBLO.EditUniversity(olduniversity, newuniversity);
+                //UniversityBLO universityBLO = new UniversityBLO(ConfigurationManager.AppSettings["DbFolder"]);
+
+                //if (this.olduniversity == null)
+                //    universityBLO.CreateUniversity(newuniversity);
+                //else
+                //    universityBLO.EditUniversity(olduniversity, newuniversity);
 
                 MessageBox.Show(
                     "Save done!",
@@ -97,6 +109,7 @@ namespace CC01.WinForms
                     MessageBoxIcon.Information
                     );
 
+                Close();
 
                 if (callback != null)
                     callback();
@@ -108,7 +121,7 @@ namespace CC01.WinForms
                 txtName.Clear();
                 txtTel.Clear();
                 pictureBox1.ImageLocation = null;
-                loadData();
+                //loadData();
 
             }
             catch (TypingException ex)
@@ -168,7 +181,7 @@ namespace CC01.WinForms
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            loadData();
+            //loadData();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -178,21 +191,21 @@ namespace CC01.WinForms
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
-                {
-                    Form f = new FrmUniversity
-                        (
-                            dataGridView1.SelectedRows[i].DataBoundItem as University,
-                            loadData
-                        );
-                    this.Close();
-                    f.Show();
-                    f.WindowState = FormWindowState.Maximized;
-                }
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //{
+            //    for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            //    {
+            //        Form f = new FrmUniversity
+            //            (
+            //                dataGridView1.SelectedRows[i].DataBoundItem as University,
+            //                loadData
+            //            );
+            //        this.Close();
+            //        f.Show();
+            //        f.WindowState = FormWindowState.Maximized;
+            //    }
 
-            }
+            //}
 
         }
 
@@ -205,9 +218,9 @@ namespace CC01.WinForms
                 {
                     for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                     {
-                        universityBLO.DeleteUniversity(dataGridView1.SelectedRows[i].DataBoundItem as University);
+                        //universityBLO.DeleteUniversity(dataGridView1.SelectedRows[i].DataBoundItem as University);
                     }
-                    loadData();
+                    //loadData();
 
 
                 }

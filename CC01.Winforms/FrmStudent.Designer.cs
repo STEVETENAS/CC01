@@ -246,7 +246,6 @@
             // 
             // lblSearch
             // 
-            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.ForeColor = System.Drawing.Color.Azure;

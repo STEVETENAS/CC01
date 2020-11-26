@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using QRCoder;
 
 namespace CC01.WinForms
 {
@@ -17,6 +18,8 @@ namespace CC01.WinForms
         private Student oldStudent;
         private StudentBLO studentBLO;
         private UniversityBLO universityBLO;
+        PictureBox pb;
+
 
         public FrmStudent()
         {
@@ -24,6 +27,7 @@ namespace CC01.WinForms
             dataGridView1.AutoGenerateColumns = false;
             studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
             universityBLO = new UniversityBLO(ConfigurationManager.AppSettings["DbFolder"]);
+            pb = new PictureBox();
         }
             public FrmStudent(Action callback) : this()
         {
@@ -101,7 +105,6 @@ namespace CC01.WinForms
                     sex = "";
 
 
-
                 Student newStudent = new Student(
                     txtFirstName.Text,
                     txtLastName.Text,
@@ -110,8 +113,14 @@ namespace CC01.WinForms
                     sex,
                     Convert.ToDateTime(dateTimePicker1.Value),
                     txtAt.Text,
-                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo
+                    !string.IsNullOrEmpty(pictureBox1.ImageLocation) ? File.ReadAllBytes(pictureBox1.ImageLocation) : this.oldStudent?.Photo,
+                    !string.IsNullOrEmpty(pb.ImageLocation) ? File.ReadAllBytes(pb.ImageLocation) : this.oldStudent?.QrCode
                     );
+
+                QRCodeGenerator qr = new QRCodeGenerator();
+                QRCodeData data = qr.CreateQrCode(newStudent.Matricule, QRCodeGenerator.ECCLevel.Q);
+                QRCode code = new QRCode(data);
+                pb.Image = code.GetGraphic(20);
 
 
                 StudentBLO studentBLO = new StudentBLO(ConfigurationManager.AppSettings["DbFolder"]);
@@ -198,15 +207,14 @@ namespace CC01.WinForms
             }
         }
 
-        private void GetQRCode()
-        {
-        }
-
         private void checkForm()
         {
             string text = string.Empty;
             txtFirstName.BackColor = Color.White;
             txtLastName.BackColor = Color.White;
+            txtAt.BackColor = Color.White;
+            txtEmail.BackColor = Color.White;
+            txtTel.BackColor = Color.White;
 
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text))
             {
@@ -332,7 +340,8 @@ namespace CC01.WinForms
                           university?.Email,
                           university?.Tel.ToString(),
                           s.TelS,
-                          !string.IsNullOrEmpty(university?.Logo) ? File.ReadAllBytes(university?.Logo) : null
+                          !string.IsNullOrEmpty(university?.Logo) ? File.ReadAllBytes(university?.Logo) : null,
+                          s.QrCode
 
                       )
                   );

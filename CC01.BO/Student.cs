@@ -17,7 +17,7 @@ namespace CC01.BO
         public string BornAt { get; set; }
         public byte[] Photo { get; set; }
         public string Matricule { get; set; }
-        public Bitmap QrCode { get; set; }
+        public byte[] QrCode { get; set; }
 
         public static int count = 0;
 
@@ -26,7 +26,7 @@ namespace CC01.BO
 
         }
 
-        public Student(string firstName, string lastName, string emailS, long telS, string sexe, DateTime bornOn, string bornAt, byte[] photo)
+        public Student(string firstName, string lastName, string emailS, long telS, string sexe, DateTime bornOn, string bornAt, byte[] photo,byte[] qrCode)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -38,6 +38,7 @@ namespace CC01.BO
             Photo = photo;
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
+            QrCode = qrCode;
 
             //QRCodeGenerator qr = new QRCodeGenerator();
             //QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);

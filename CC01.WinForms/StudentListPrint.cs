@@ -3,6 +3,7 @@ using QRCoder;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace CC01.WinForms
 {
@@ -21,7 +22,7 @@ namespace CC01.WinForms
         public string Tel { get; set; }
         public long TelS { get; set; }
         public byte[] Logo { get; set; }
-        public Image QrCode { get; set; }
+        public byte[] QrCode { get; set; }
 
         public static int count = 0;
         public StudentListPrint()
@@ -31,7 +32,7 @@ namespace CC01.WinForms
 
         public StudentListPrint(string name, string firstName, string lastName, DateTime bornOn, 
             string bornAt, byte[] photo, string sexe, string emailS, string email, string tel, 
-            long telS, byte[] logo)
+            long telS, byte[] logo, byte[] qrCode)
         {
             Name = name;
             FirstName = firstName;
@@ -47,10 +48,8 @@ namespace CC01.WinForms
             Logo = logo;
             Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
-
-
+            QrCode = qrCode;
         }
-
 
         //QRCodeGenerator qr = new QRCodeGenerator();
         //QRCodeData data = qr.CreateQrCode(Matricule, QRCodeGenerator.ECCLevel.Q);
@@ -72,7 +71,7 @@ namespace CC01.WinForms
             TelS = s.TelS;
             Logo = s.Logo;
 
-            Matricule = $"{FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
+            Matricule = $"{ FirstName.Substring(0, 2)}{BornOn.Year.ToString().Substring(2)}" +
                         $"{count++.ToString().PadLeft(4, '0')}{Sexe.Substring(0, 1)}";
 
         }
